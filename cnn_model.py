@@ -5,8 +5,12 @@ from keras.layers import MaxPooling2D
 from keras.layers import Flatten
 from keras.layers import Dense, Dropout
 from keras import optimizers
+from datetime import datetime
 
+GREEN = '\033[92m'
+END_COLOR = '\033[0m'
 
+print(GREEN + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + END_COLOR)
 classifier = Sequential()
 
 
@@ -65,8 +69,8 @@ model = classifier.fit_generator(
         validation_data = test_set,
         validation_steps = 6500
       )
-
-classifier.save('ISLModel2.h5')
+print(GREEN + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + END_COLOR)
+classifier.save('ISLModel800.h5')
 
 print(model.history.keys())
 
